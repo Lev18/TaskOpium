@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <QPlainTextEdit>
+#include <QDate>
+#include <jsoncpp/json/json.h>
 
 namespace Ui {
 class Task;
@@ -22,9 +24,10 @@ private slots:
     void on_pushButton_2_clicked();
 
 private:
+    Ui::Task *ui;
     QString m_task_title;
     QString m_task_description;
-    Ui::Task *ui;
+    QDateTime date;
 };
 
 #endif // TASK_H
