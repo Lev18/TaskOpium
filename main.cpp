@@ -1,8 +1,9 @@
-#include "taskopium.h"
+#include "task_manager.h"
 
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include <QFile>
 
 int main(int argc, char *argv[])
 {
@@ -17,7 +18,7 @@ int main(int argc, char *argv[])
             break;
         }
     }
-    Taskopium w;
+    Task_manager w;
     w.show();
     return a.exec();
 }

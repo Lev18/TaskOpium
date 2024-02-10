@@ -1,22 +1,29 @@
-#include "taskopium.h"
-#include "ui_taskopium.h"
-#include "task.h"
-Taskopium::Taskopium(QWidget *parent)
+#include "task_manager.h"
+#include "ui_task_manager.h"
+#include "add_tasks.h"
+
+Task_manager::Task_manager(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::Taskopium)
+    , ui(new Ui::Task_manager)
 {
     ui->setupUi(this);
 }
 
-Taskopium::~Taskopium()
+Task_manager::~Task_manager()
 {
     delete ui;
     delete task;
 }
 
-void Taskopium::on_pushButton_clicked()
+void Task_manager::on_pushButton_clicked()
 {
-    task = new Task();
+    task = new Add_task();
     task->show();
+}
+
+
+void Task_manager::on_pushButton_2_clicked()
+{
+
 }
 

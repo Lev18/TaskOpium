@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Task</class>
- <widget class="QDialog" name="Task">
+ <class>Add_task</class>
+ <widget class="QDialog" name="Add_task">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -85,6 +85,12 @@
     </rect>
    </property>
   </widget>
+  <zorder>pushButton_2</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>lineEdit</zorder>
+  <zorder>lineEdit_2</zorder>
+  <zorder>textEdit</zorder>
+  <zorder>textEdit_2</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -1,29 +1,31 @@
-#ifndef TASKOPIUM_H
-#define TASKOPIUM_H
+#ifndef TASK_MANAGER_H
+#define TASK_MANAGER_H
 
-#include "task.h"
+#include "add_tasks.h"
 
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
-class Taskopium;
+class Task_manager;
 }
 QT_END_NAMESPACE
 
-class Taskopium : public QMainWindow
+class Task_manager : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    Taskopium(QWidget *parent = nullptr);
-    ~Taskopium();
+    Task_manager(QWidget *parent = nullptr);
+    ~Task_manager();
 
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+
 private:
-    Task *task;
-    Ui::Taskopium *ui;
+    Add_task *task;
+    Ui::Task_manager *ui;
 };
-#endif // TASKOPIUM_H
+#endif // TASK_MANAGER_H

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Taskopium</class>
- <widget class="QMainWindow" name="Taskopium">
+ <class>Task_manager</class>
+ <widget class="QMainWindow" name="Task_manager">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -111,9 +111,9 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
-      <widget class="QPushButton" name="pushButton_7">
+      <widget class="QPushButton" name="pushButton_2">
        <property name="text">
-        <string>Show all tasks</string>
+        <string>Show tasks</string>
        </property>
       </widget>
      </item>

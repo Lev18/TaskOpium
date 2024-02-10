@@ -1,22 +1,33 @@
-#ifndef TASK_H
-#define TASK_H
+#ifndef ADD_TASKS_H
+#define ADD_TASKS_H
+
+#include "task.h"
+#include "ui_add_tasks.h"
 
 #include <QDialog>
 #include <QPlainTextEdit>
 #include <QDate>
+#include <QFile>
+
+#include <fstream>
 #include <jsoncpp/json/json.h>
+#include <jsoncpp/json/reader.h>
 
+
+
+QT_BEGIN_NAMESPACE
 namespace Ui {
-class Task;
+class Add_task;
 }
+QT_END_NAMESPACE
 
-class Task : public QDialog
+class Add_task : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit Task(QWidget *parent = nullptr);
-    ~Task();
+    explicit Add_task(QWidget *parent = nullptr);
+    ~Add_task();
 
 private slots:
     void on_pushButton_clicked();
@@ -24,10 +35,13 @@ private slots:
     void on_pushButton_2_clicked();
 
 private:
-    Ui::Task *ui;
-    QString m_task_title;
-    QString m_task_description;
-    QDateTime date;
+    Ui::Add_task *ui;
+    //std::ofstream m_file;
+    Task *new_task;
+
+private:
+    void save_tasks_as_json();
+
 };
 
-#endif // TASK_H
+#endif // ADD_TASKS_H
