@@ -6,14 +6,13 @@
 
 #include <QDialog>
 #include <QPlainTextEdit>
+#include <QLineEdit>
 #include <QDate>
 #include <QFile>
 
 #include <fstream>
 #include <jsoncpp/json/json.h>
 #include <jsoncpp/json/reader.h>
-
-
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -38,6 +37,8 @@ private:
     Ui::Add_task *ui;
     //std::ofstream m_file;
     Task *new_task;
+    QString m_task_title;
+    QString m_task_description;
 
 private:
     void save_tasks_as_json();

@@ -4,11 +4,21 @@
 #include <QLocale>
 #include <QTranslator>
 #include <QFile>
+#include <fstream>
+#include <QDir>
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    QString filePath = QDir::homePath() + "/Workspace/Taskopium/Font/Diffnes.qss";
+    QFile styleSheetFile(filePath);
+    if (!styleSheetFile.open(QFile::ReadOnly)) {
+        qDebug() << "Unable open file" ;
+    }
+    QString styleSheet = QLatin1String(styleSheetFile.readAll());
 
+    a.setStyleSheet(styleSheet);
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
     for (const QString &locale : uiLanguages) {
@@ -19,6 +29,6 @@ int main(int argc, char *argv[])
         }
     }
     Task_manager w;
-    w.show();
+    // w.show();
     return a.exec();
 }
