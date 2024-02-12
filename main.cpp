@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QString filePath = QDir::homePath() + "/Workspace/Taskopium/Font/SpyBot.qss";
+    QString filePath = QDir::homePath() + "/Workspace/Taskopium/Font/Diffnes.qss";
     QFile styleSheetFile(filePath);
     if (!styleSheetFile.open(QFile::ReadOnly)) {
         qDebug() << "Unable open file" ;

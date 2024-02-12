@@ -6,6 +6,7 @@
 
 #include <QDialog>
 #include <QPlainTextEdit>
+#include <QLineEdit>
 #include <QDate>
 #include <QFile>
 
@@ -36,6 +37,8 @@ private:
     Ui::Add_task *ui;
     //std::ofstream m_file;
     Task *new_task;
+    QString m_task_title;
+    QString m_task_description;
 
 private:
     void save_tasks_as_json();

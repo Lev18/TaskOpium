@@ -45,15 +45,15 @@ void Add_task::save_tasks_as_json()
 
 void Add_task::on_pushButton_clicked()
 {
-    // m_task_title = ui->textEdit_2->toPlainText();
-    // m_task_description = ui->textEdit->toPlainText();
+    m_task_title = ui->textEdit_2->toPlainText();
+    m_task_description = ui->lineEdit_3->text();
     new_task = new Task(ui->textEdit_2->toPlainText()
-                        ,ui->textEdit->toPlainText());
-     save_tasks_as_json();
+                        , ui->lineEdit_3->text());
+    save_tasks_as_json();
 
-    ui->textEdit->clear();
+    ui->lineEdit_3->clear();
     ui->textEdit_2->clear();
-    // qDebug() << m_task_title;
+    // // qDebug() << m_task_title;
     QDialog::close();
 
 }
