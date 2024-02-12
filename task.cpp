@@ -24,5 +24,5 @@ QString Task::get_task_title() const
 
 QString Task::get_task_description() const
 {
-    return m_task_title;
+    return m_task_description;
 }

@@ -13,8 +13,6 @@
 #include <jsoncpp/json/json.h>
 #include <jsoncpp/json/reader.h>
 
-
-
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Add_task;

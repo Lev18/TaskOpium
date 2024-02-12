@@ -8,6 +8,7 @@
 Add_task::Add_task(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Add_task)
+    , new_task(nullptr)
 {
     ui->setupUi(this);
 }
@@ -15,7 +16,7 @@ Add_task::Add_task(QWidget *parent)
 Add_task::~Add_task()
 {
     delete ui;
-
+    delete new_task;
 }
 
 void Add_task::save_tasks_as_json()
@@ -29,8 +30,8 @@ void Add_task::save_tasks_as_json()
         }
 
         Json::Value root;
-        // root["Title"] = m_task_title.toStdString();
-        // root["Descript"] = m_task_description.toStdString();
+        root["Title"] = new_task->get_task_title().toStdString();
+        root["Descript"] = new_task->get_task_description().toStdString();
         std::cout << root.toStyledString();
 
         Json::StyledWriter writer;
@@ -46,10 +47,12 @@ void Add_task::on_pushButton_clicked()
 {
     // m_task_title = ui->textEdit_2->toPlainText();
     // m_task_description = ui->textEdit->toPlainText();
+    new_task = new Task(ui->textEdit_2->toPlainText()
+                        ,ui->textEdit->toPlainText());
      save_tasks_as_json();
 
-    // ui->textEdit->clear();
-    // ui->textEdit_2->clear();
+    ui->textEdit->clear();
+    ui->textEdit_2->clear();
     // qDebug() << m_task_title;
     QDialog::close();
 

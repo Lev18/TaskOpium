@@ -1,9 +1,13 @@
 #ifndef TASK_MANAGER_H
 #define TASK_MANAGER_H
 
+#include "ui_task_manager.h"
 #include "add_tasks.h"
+#include "tasks_list.h"
 
 #include <QMainWindow>
+#include <QVBoxLayout>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -25,7 +29,8 @@ private slots:
     void on_pushButton_2_clicked();
 
 private:
-    Add_task *task;
     Ui::Task_manager *ui;
+    Add_task *new_task;
+    tasks_list *tasks;
 };
 #endif // TASK_MANAGER_H
