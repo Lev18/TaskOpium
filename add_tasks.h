@@ -11,8 +11,8 @@
 #include <QDialog>
 #include <QPlainTextEdit>
 #include <QLineEdit>
-#include <QDate>
 #include <QDir>
+#include <QMessageBox>
 
 #include <fstream>
 #include <jsoncpp/json/json.h>
@@ -23,6 +23,10 @@ namespace Ui {
 class Add_task;
 }
 QT_END_NAMESPACE
+
+enum class Task_Priority {
+    LOW, MEDIUM, HIGH
+};
 
 class Add_task : public QDialog
 {
@@ -43,6 +47,9 @@ private:
     Task *new_task;
     QString m_task_title;
     QString m_task_description;
+    QString m_task_priority;
+    QString m_task_status;
+    QString m_task_date;
 
 private:
     void save_tasks_as_json();

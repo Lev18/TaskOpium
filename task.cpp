@@ -29,3 +29,15 @@ QString Task::get_task_description() const
 {
     return m_task_description;
 }
+
+void Task::on_pushButton_clicked()
+{
+
+}
+
+
+void Task::on_pushButton_2_clicked()
+{
+    QDialog::close();
+}
+
