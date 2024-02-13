@@ -6,15 +6,14 @@ tasks_list::tasks_list(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::tasks_list)
 {
-    QVBoxLayout *layout = new QVBoxLayout(this);
-
-    // creating scroll area
-    scroll_area = new QScrollArea(this);
-    layout->addWidget(scroll_area );
-
-    connect(scroll_area->verticalScrollBar(),
-            &QScrollBar::valueChanged, this, &tasks_list::update_window_size);
     ui->setupUi(this);
+    QVBoxLayout *layout = new QVBoxLayout(this);
+    for (int i = 0; i < 25; ++i) {
+        QPushButton* button = new QPushButton("Hello scrolling window /n new task");
+        layout->addWidget(button);
+    }
+    ui->scrollAreaWidgetContents->setLayout(layout);
+
 }
 
 tasks_list::~tasks_list()

@@ -9,8 +9,10 @@
 #include <QMainWindow>
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <QLabel>
 #include <QScreen>
-#include <QPicture>
+#include <QImage>
+#include <QDir>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -35,11 +37,14 @@ private:
     Ui::Task_manager *ui;
     Add_task *new_task;
     tasks_list *tasks;
+    QWidget * widget;
     QPushButton* add_new_task_button;
     QPushButton* delete_button;
     QPushButton* edit_task_button;
     QPushButton* show_all_task_button;
-    //std::unique_ptr<QPushButton> button;
+    QImage m_image;
+    QLabel* m_image_label;
+    QVBoxLayout* vlayout;
 
 private:
     const size_t m_window_height;

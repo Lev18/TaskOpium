@@ -3,10 +3,10 @@
 
 #include <QScrollBar>
 #include <QScrollArea>
-#include <QVBoxLayout>
-#include <QMessageBox>
 #include <QDialog>
 #include <QWidget>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 namespace Ui {
 class tasks_list;
