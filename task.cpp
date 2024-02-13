@@ -10,7 +10,10 @@ Task::Task(QWidget *parent)
 
 Task::Task(const QString& title, const QString& descript)
     : m_task_title(title)
-    , m_task_description(descript) {}
+    , m_task_description(descript)
+{
+
+}
 
 Task::~Task()
 {

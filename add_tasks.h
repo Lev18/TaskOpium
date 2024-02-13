@@ -4,11 +4,15 @@
 #include "task.h"
 #include "ui_add_tasks.h"
 
+#include <iostream>
+#include <QDebug>
+#include <QTextStream>
+#include <QFile>
 #include <QDialog>
 #include <QPlainTextEdit>
 #include <QLineEdit>
 #include <QDate>
-#include <QFile>
+#include <QDir>
 
 #include <fstream>
 #include <jsoncpp/json/json.h>
@@ -24,13 +28,13 @@ class Add_task : public QDialog
 {
     Q_OBJECT
 
+
 public:
     explicit Add_task(QWidget *parent = nullptr);
     ~Add_task();
 
 private slots:
     void on_pushButton_clicked();
-
     void on_pushButton_2_clicked();
 
 private:

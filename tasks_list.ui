@@ -13,51 +13,28 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="horizontalLayoutWidget">
+  <widget class="QScrollArea" name="scrollArea">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>150</y>
-     <width>491</width>
-     <height>171</height>
+     <x>20</x>
+     <y>10</y>
+     <width>601</width>
+     <height>521</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QCommandLinkButton" name="commandLinkButton_2">
-      <property name="text">
-       <string>CommandLinkButton</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QCommandLinkButton" name="commandLinkButton">
-      <property name="text">
-       <string>CommandLinkButton</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QListView" name="listView">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>340</y>
-     <width>256</width>
-     <height>192</height>
-    </rect>
+   <property name="widgetResizable">
+    <bool>true</bool>
    </property>
-  </widget>
-  <widget class="QTableWidget" name="tableWidget">
-   <property name="geometry">
-    <rect>
-     <x>390</x>
-     <y>340</y>
-     <width>256</width>
-     <height>192</height>
-    </rect>
-   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>599</width>
+      <height>519</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
