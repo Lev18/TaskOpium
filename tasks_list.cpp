@@ -8,10 +8,18 @@ tasks_list::tasks_list(QWidget *parent)
 {
     ui->setupUi(this);
     QVBoxLayout *layout = new QVBoxLayout(this);
-    for (int i = 0; i < 25; ++i) {
-        QPushButton* button = new QPushButton("Hello scrolling window /n new task");
+    task_list.push_back(new Task("Task 1","Create task"));
+    task_list.push_back(new Task("Task 2","Change task"));
+    task_list.push_back(new Task("Task 3","Change task"));
+    task_list.push_back(new Task("Task 4","Change task"));
+    task_list.push_back(new Task("Task 5","Change task"));
+    for (int i = 0; i < task_list.size(); ++i) {
+        QPushButton* button = new QPushButton(task_list[i]->get_task_title());
+        connect(button,&QPushButton::clicked,this
+                ,&tasks_list::on_button_clicked);
         layout->addWidget(button);
     }
+
     ui->scrollAreaWidgetContents->setLayout(layout);
 }
 
@@ -29,4 +37,17 @@ void tasks_list::update_window_size(int val)
     setFixedSize(size);
 }
 
+void tasks_list::on_button_clicked()
+{
+    QMessageBox::StandardButton reply = QMessageBox::question(this,"Task","Would you like to edit task"
+                                                             ,QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::Yes) {
+        Task* temp = new Task();
+        temp->show();
+    }
+    else {
+        qDebug() << "Noo";
+    }
 
+
+}
