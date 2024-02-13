@@ -13,7 +13,6 @@ tasks_list::tasks_list(QWidget *parent)
         layout->addWidget(button);
     }
     ui->scrollAreaWidgetContents->setLayout(layout);
-
 }
 
 tasks_list::~tasks_list()
