@@ -15,11 +15,12 @@ class Task : public QDialog
 
 public:
     explicit Task(QWidget *parent = nullptr);
-    Task(const QString& title, const QString& descript);
+    Task(int task_id, const QString& title, const QString& descript);
     ~Task();
 
 private:
     Ui::Task *ui;
+    int m_task_id;
     QString m_task_title;
     QString m_task_description;
     QDateTime m_date;

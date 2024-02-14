@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     add_tasks.cpp \
+    global.cpp \
     main.cpp \
     task.cpp \
     task_manager.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
 
 HEADERS += \
     add_tasks.h \
+    global.h \
     task.h \
     task_manager.h \
     tasks_list.h

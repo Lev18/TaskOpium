@@ -45,6 +45,7 @@ private:
     Ui::Add_task *ui;
     //std::ofstream m_file;
     Task *new_task;
+    int m_task_id;
     QString m_task_title;
     QString m_task_description;
     QString m_task_priority;
