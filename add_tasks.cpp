@@ -1,4 +1,5 @@
 #include "add_tasks.h"
+#include "global.h"
 
 Add_task::Add_task(QWidget *parent)
     : QDialog(parent)
@@ -37,6 +38,7 @@ void Add_task::save_tasks_as_json()
         }
 
         Json::Value root;
+        root["Task ID"] = m_task_id;
         root["Title"] = new_task->get_task_description().toStdString();
         root["Descript"] = new_task->get_task_description().toStdString();
         root["Priority"] = ui->comboBox_2->currentText().toStdString();
@@ -58,8 +60,9 @@ void Add_task::on_pushButton_clicked()
     m_task_status = ui->comboBox->currentText();
     m_task_priority = ui->comboBox_2->currentText();
     m_task_date = ui->calendarWidget->selectedDate().toString();
+    m_task_id = Global::get_next_task_id();
 
-    new_task = new Task(m_task_title
+    new_task = new Task(m_task_id, m_task_title
                         , m_task_description);
     qDebug() << m_task_priority;
     save_tasks_as_json();

@@ -8,11 +8,11 @@ tasks_list::tasks_list(QWidget *parent)
 {
     ui->setupUi(this);
     QVBoxLayout *layout = new QVBoxLayout(this);
-    task_list.push_back(new Task("Task 1","Create task"));
-    task_list.push_back(new Task("Task 2","Change task"));
-    task_list.push_back(new Task("Task 3","Change task"));
-    task_list.push_back(new Task("Task 4","Change task"));
-    task_list.push_back(new Task("Task 5","Change task"));
+    task_list.push_back(new Task(0,"Task 1","Create task"));
+    task_list.push_back(new Task(1,"Task 2","Change task"));
+    task_list.push_back(new Task(2,"Task 3","Change task"));
+    task_list.push_back(new Task(3,"Task 4","Change task"));
+    task_list.push_back(new Task(4,"Task 5","Change task"));
     for (int i = 0; i < task_list.size(); ++i) {
         QPushButton* button = new QPushButton(task_list[i]->get_task_title());
         connect(button,&QPushButton::clicked,this

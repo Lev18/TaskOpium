@@ -8,7 +8,7 @@ Task::Task(QWidget *parent)
     ui->setupUi(this);
 }
 
-Task::Task(const QString& title, const QString& descript)
+Task::Task(int task_id, const QString& title, const QString& descript)
     : m_task_title(title)
     , m_task_description(descript)
 {
@@ -32,7 +32,6 @@ QString Task::get_task_description() const
 
 void Task::on_pushButton_clicked()
 {
-
 }
 
 
