@@ -29,7 +29,7 @@ Add_task::~Add_task()
 
 void Add_task::save_tasks_as_json()
 {
-    std::string file_path = std::filesystem::absolute("serv.txt");
+    std::string file_path = std::filesystem::absolute("server.json");
     std::ofstream m_file(file_path , std::fstream::out | std::fstream::app);
         if (!m_file.is_open()) {
             std::cerr << "Unable to launch server file" << std::endl;
@@ -77,7 +77,3 @@ void Add_task::on_pushButton_2_clicked()
 {
     QDialog::close();
 }
-
-
-
-

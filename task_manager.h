@@ -13,11 +13,16 @@
 #include <QScreen>
 #include <QImage>
 #include <QDir>
+#include <QInputDialog>
+#include <QLineEdit>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
-class Task_manager;
+    class Task_manager;
 }
+class Task_manager;
+
 QT_END_NAMESPACE
 
 class Task_manager : public QMainWindow
@@ -30,8 +35,8 @@ public:
 
 private slots:
     void on_pushButton_clicked();
-
     void on_pushButton_2_clicked();
+    void pushButton_clicked_3();
 
 private:
     Ui::Task_manager *ui;

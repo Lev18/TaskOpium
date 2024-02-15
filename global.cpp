@@ -56,8 +56,3 @@ int Global::get_next_task_id()
     Global::update_task_id(file_path,curr_task_id);
     return curr_task_id;
 }
-
-
-
-
-

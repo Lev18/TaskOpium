@@ -3,6 +3,11 @@
 
 #include "task.h"
 
+#include <filesystem>
+#include <fstream>
+#include <string>
+
+#include <QVector>
 #include <QScrollBar>
 #include <QScrollArea>
 #include <QDialog>
@@ -28,11 +33,13 @@ private slots:
 private:
     Ui::tasks_list *ui;
     QScrollArea *scroll_area;
-    QVector<Task*> task_list;
+    QVector<std::string> task_title_list;
 
 private:
     void update_window_size(int val);
     void on_button_clicked();
+    void read_from_file();
+    void remove_par(std::string& str);
 };
 
 #endif // TASKS_LIST_H
