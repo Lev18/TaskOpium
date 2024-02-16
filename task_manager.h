@@ -40,8 +40,7 @@ private slots:
 
 private:
     Ui::Task_manager *ui;
-    Add_task *new_task;
-    tasks_list *tasks;
+
     QWidget * widget;
     QPushButton* add_new_task_button;
     QPushButton* delete_button;
@@ -50,6 +49,9 @@ private:
     QImage m_image;
     QLabel* m_image_label;
     QVBoxLayout* vlayout;
+
+    std::unique_ptr<Add_task> new_task;
+    std::unique_ptr<tasks_list> tasks;
 
 private:
     const size_t m_window_height;

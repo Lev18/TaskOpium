@@ -1,14 +1,16 @@
 #include "task_manager.h"
 #include "ui_task_manager.h"
+#include <memory>
 
 Task_manager::Task_manager(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Task_manager)
-    , new_task{nullptr}
+    , add_new_task_button{nullptr}
     , tasks{nullptr}
-    , m_window_height{845}
-    , m_window_width {550}
+    , m_window_height{1000}
+    , m_window_width {750}
 {
+    this->setFixedSize(m_window_width, m_window_height);
     ui->setupUi(this);
     widget = new QWidget;
 
@@ -50,16 +52,16 @@ Task_manager::Task_manager(QWidget *parent)
     m_image_label->setFixedSize(340,400);
 
     // creating text label
-    QLabel *text_label = new QLabel();
-    text_label->setGeometry(550,845,845,550);
-    text_label->setText("Welcome Tascopium");
+    //QLabel* text_label =  new QLabel();
 
+    std::unique_ptr<QLabel> text_label = std::make_unique<QLabel>(new QLabel("Welcome Tascopium"));
+    text_label->setGeometry(550,845,845,550);
     // setting text font
     QFont font("Arial",16);
     text_label->setFont(font);
 
     // adding them to widget
-    vlayout->addWidget(text_label);
+    vlayout->addWidget(text_label.get());
     vlayout->addWidget(m_image_label);
     vlayout->addWidget(add_new_task_button);
     vlayout->addWidget(delete_button);
@@ -78,14 +80,8 @@ Task_manager::~Task_manager()
     delete ui;
     delete widget;
     delete vlayout;
-    if (new_task) {
-        delete new_task;
-    }
-    if (tasks) {
-        delete tasks;
-    }
-    delete add_new_task_button;
     delete delete_button;
+    delete add_new_task_button;
     delete edit_task_button;
     delete show_all_task_button;
     delete m_image_label;
@@ -93,15 +89,17 @@ Task_manager::~Task_manager()
 
 void Task_manager::on_pushButton_clicked()
 {
-    new_task = new Add_task;
+    new_task = std::make_unique<Add_task>(new Add_task());
     new_task->show();
+   // delete new_task;
 }
 
 
 void Task_manager::on_pushButton_2_clicked()
 {
-    tasks = new tasks_list;
+    tasks = std::make_unique<tasks_list>(new tasks_list());
     tasks->show();
+
 }
 
 void Task_manager::pushButton_clicked_3()

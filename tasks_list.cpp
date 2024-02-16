@@ -1,6 +1,7 @@
 #include "tasks_list.h"
 #include "ui_tasks_list.h"
 
+#include <memory>
 
 tasks_list::tasks_list(QWidget *parent)
     : QDialog(parent)
@@ -9,8 +10,9 @@ tasks_list::tasks_list(QWidget *parent)
     ui->setupUi(this);
     QVBoxLayout *layout = new QVBoxLayout(this);
     tasks_list::read_from_file();
+    QPushButton* button;
     for (int i = 0; i < task_title_list.size(); ++i) {
-        QPushButton* button = new QPushButton(QString::fromLocal8Bit(task_title_list[i].c_str()));
+        button = new QPushButton(QString::fromLocal8Bit(task_title_list[i].c_str()));
         button->setMinimumHeight(32);
         connect(button,&QPushButton::clicked,this
                 ,&tasks_list::on_button_clicked);
@@ -40,10 +42,11 @@ void tasks_list::on_button_clicked()
     if (reply == QMessageBox::Yes) {
         Task* temp = new Task();
         temp->show();
+        delete temp;
     }
     else {
         qDebug() << "Noo";
-    }
+    }  
 }
 
 void tasks_list::read_from_file()
