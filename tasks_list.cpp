@@ -1,6 +1,7 @@
 #include "tasks_list.h"
 #include "ui_tasks_list.h"
 
+#include <memory>
 
 tasks_list::tasks_list(QWidget *parent)
     : QDialog(parent)
@@ -8,18 +9,15 @@ tasks_list::tasks_list(QWidget *parent)
 {
     ui->setupUi(this);
     QVBoxLayout *layout = new QVBoxLayout(this);
-    task_list.push_back(new Task(0,"Task 1","Create task"));
-    task_list.push_back(new Task(1,"Task 2","Change task"));
-    task_list.push_back(new Task(2,"Task 3","Change task"));
-    task_list.push_back(new Task(3,"Task 4","Change task"));
-    task_list.push_back(new Task(4,"Task 5","Change task"));
-    for (int i = 0; i < task_list.size(); ++i) {
-        QPushButton* button = new QPushButton(task_list[i]->get_task_title());
+    tasks_list::read_from_file();
+    QPushButton* button;
+    for (int i = 0; i < task_title_list.size(); ++i) {
+        button = new QPushButton(QString::fromLocal8Bit(task_title_list[i].c_str()));
+        button->setMinimumHeight(32);
         connect(button,&QPushButton::clicked,this
                 ,&tasks_list::on_button_clicked);
         layout->addWidget(button);
     }
-
     ui->scrollAreaWidgetContents->setLayout(layout);
 }
 
@@ -44,10 +42,39 @@ void tasks_list::on_button_clicked()
     if (reply == QMessageBox::Yes) {
         Task* temp = new Task();
         temp->show();
+        delete temp;
     }
     else {
         qDebug() << "Noo";
-    }
+    }  
+}
 
+void tasks_list::read_from_file()
+{
+    std::string file_path = std::filesystem::absolute("server.json");
+    std::ifstream file(file_path, std::fstream::in);
+    if (!file.is_open()) {
+        std::exit(1);
+    }
+    std::string line {};
+    std::string title {};
+    while(std::getline(file,line))  {
+        if(line.find("Title") != std::string::npos) {
+            // size_t pos = line.find('"');
+            title = line.substr(14);
+            remove_par(title);
+            task_title_list.push_back(title);
+            // break;
+        }
+    }
+    file.close();
+}
+
+void tasks_list::remove_par(std::string& task_title)
+{
+    size_t pos = task_title.find('"');
+    if (pos != std::string::npos) {
+        task_title = task_title.substr(0,pos);
+    }
 
 }

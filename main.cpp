@@ -1,17 +1,22 @@
 #include "task_manager.h"
 
+#include <filesystem>
+#include <fstream>
+#include <string>
+
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
 #include <QFile>
-#include <fstream>
 #include <QDir>
 #include <QDebug>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QString filePath = QDir::homePath() + "/Workspace/Taskopium/Font/Diffnes.qss";
+   // QDir dir;
+    std::string file_path = std::filesystem::absolute("Diffnes.qss");
+    QString filePath = QString::fromLocal8Bit(file_path);
     QFile styleSheetFile(filePath);
     if (!styleSheetFile.open(QFile::ReadOnly)) {
         qDebug() << "Unable open file" ;

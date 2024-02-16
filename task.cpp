@@ -32,6 +32,7 @@ QString Task::get_task_description() const
 
 void Task::on_pushButton_clicked()
 {
+    // Todo implemented
 }
 
 
