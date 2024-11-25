@@ -15,6 +15,8 @@
 #include <QDir>
 #include <QInputDialog>
 #include <QLineEdit>
+#include <QtSql>
+
 
 
 QT_BEGIN_NAMESPACE
